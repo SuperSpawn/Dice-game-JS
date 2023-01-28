@@ -5,8 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/start.css">
+    <script src="./javascript/script.js" defer></script>
 </head>
 <body>
+    <div class="container">
+        <div class="start-menu">
+            <p>Game Instructions:</p>
+            <ul>
+                <li>In your turn - roll the dice (at least once) and accumulate result in "current"</li>
+                <li>You can roll again or click "Hold" to save the points from "Current" and end the turn</li>
+                <li>Note! If you get 6-6 - you will lose all points from "current" and the turn will go to your opponent</li>
+                <li>If you managed to reach exactly the score - you win! If passed it - you lose...</li>
+            </ul>
+            <p>Please select a target score:</p>
+            <input type="text">
+            <button>Start Game</button>
+        </div>
+    
+        
+        <div class="game-screen">
+            <div class="player player1-div">
+                <p>Player 1</p>
+                <p class="score">0</p>
+
+                <p class="end-message"></p>
+
+                <div class="current">
+                    <p>Current</p>
+                    <p class="current-value">0</p>
+                </div>
+            </div>
+            <div class="middle-section">
+                <button class="reset">New Game</button>
+                <div class="cubes">
+                    <img class="cube1" src="./assets/images/dice-4.png">
+                    <img class="cube2" src="./assets/images/dice-2.png">
+                </div>
+                <button class="reroll-button">Roll</button>
+                <button class="hold-button">Hold</button>
+            </div>
+            <div class="player player2-div">
+                <p>Player 2</p>
+                <p class="score">0</p>
+
+                <p class="end-message"></p>
+
+                <div class="current">
+                    <p>Current</p>
+                    <p class="current-value">0</p>
+                </div>
+            </div>
+
+            
+        </div>    
+    </div>
     
 </body>
 </html>

@@ -1,0 +1,120 @@
+
+
+:root {
+    --primary-color: #ff0090;
+    --secondary-color: #f87bc2;
+}
+
+.container {
+    max-width: 2000px;
+    width: 100%;
+    background-color: #555;
+    height: 100vh;
+}
+
+.start-menu {
+    background-color: palevioletred;
+    margin: auto;
+}
+
+.middle-section .cube1,
+.middle-section .cube2 {
+    width: 100px;
+    display: block;
+}
+.middle-section .cubes > img {
+    margin-bottom: 1rem;
+}
+
+
+.game-screen {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 2.5rem;
+    margin: auto;
+    height: 100%;
+}
+
+.game-screen > .player {
+    width: 50%;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 3rem;
+}
+
+.game-screen > .player > p {
+    text-align: center;
+}
+.game-screen > .player .score {
+    font-size: 5rem;
+    color: var(--primary-color);
+}
+.game-screen > .player .current {
+    width: 15rem;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    margin: auto;
+}
+.game-screen > .player .current > p {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.game-screen > .player .current > .current-value {
+    font-size: 2.5rem;
+}
+
+
+.middle-section {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.middle-section > button {
+    padding: 1rem 4rem;
+    font-size: 1.7rem;
+    border-radius: 2rem;
+    background-color: white;
+    color: black;
+}
+.middle-section > button:hover {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.end-message {
+    text-align: center;
+}
+
+
+
+.start-menu {
+    display: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 90%;
+    background-color: #f87bc2;
+    border: 0.5rem solid purple;
+}
+
+
+
+
+
+
