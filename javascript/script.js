@@ -60,6 +60,9 @@ function rollDice() {
 function updateScreen() {
     playerCurrentP[currentPlayer].textContent = `${playerCurrent[currentPlayer]}`;   
     playerScoreP[currentPlayer].textContent = `${playerScore[currentPlayer]}`;
+    if(screenMode === 0) {
+        playerDivs[otherPlayer(currentPlayer)].style.display = 'none';
+    }
 }
 function swapPlayer() {
     playerDivs[currentPlayer].style.opacity = 0.6;
