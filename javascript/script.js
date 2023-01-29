@@ -8,6 +8,7 @@ const imageAddresses = [
     ,'../assets/images/dice-6.png'
 ];
 
+const screenMode = getComputedStyle(document.documentElement).getPropertyValue('--mode');
 
 
 let targetScore = 100;
@@ -62,8 +63,10 @@ function updateScreen() {
 }
 function swapPlayer() {
     playerDivs[currentPlayer].style.opacity = 0.6;
+    if(screenMode === 0) playerDivs[currentPlayer].style.display = 'none';
     currentPlayer = (currentPlayer == 0) ? 1 : 0;
     playerDivs[currentPlayer].style.opacity = 1;
+    if(screenMode === 0) playerDivs[currentPlayer].style.display = 'flex';
 }
 function resetGame() {
     playerCurrent[0] = 0;
@@ -71,6 +74,7 @@ function resetGame() {
     playerScore[0] = 0;
     playerScore[1] = 0;
 
+    
 
     cube1Value = 4;
     cube2Value = 2;
@@ -86,10 +90,14 @@ function resetGame() {
     playerDivs[0].style.opacity = 1;
     playerDivs[1].style.opacity = 0.6;
 
+    if(screenMode === 0) {
+        playerDivs[1].style.display = 'none';
+    }
+
     endMessages[0].style.display = 'none';
     endMessages[1].style.display = 'none';
 
-    
+    updateScreen();
 }
 function reloadWindow() {
     window.location.reload();
@@ -163,7 +171,5 @@ resetButton.addEventListener('click', function(e) {
     reloadWindow();
     updateScreen();
 });
-
-
 
 
