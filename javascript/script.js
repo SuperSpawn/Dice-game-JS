@@ -161,7 +161,7 @@ holdButton.addEventListener('click', function(event) {
         endMessages[currentPlayer].textContent = 'Passed the target score!';
         endGame(otherPlayer(currentPlayer));
     }
-    else if(playerScore[currentPlayer] === targetScore) {
+    else if(playerScore[currentPlayer] == targetScore) {
         endMessages[otherPlayer(currentPlayer)].textContent = 'You lose!';
         endGame(currentPlayer);
     }
