@@ -3,6 +3,7 @@
 :root {
     --primary-color: #ff0090;
     --secondary-color: #f87bc2;
+    --mode: 1;
 }
 
 .container {
@@ -12,10 +13,7 @@
     height: 100vh;
 }
 
-.start-menu {
-    background-color: palevioletred;
-    margin: auto;
-}
+
 
 .middle-section .cube1,
 .middle-section .cube2 {
@@ -34,6 +32,7 @@
     font-size: 2.5rem;
     margin: auto;
     height: 100%;
+
 }
 
 .game-screen > .player {
@@ -45,7 +44,7 @@
     padding: 3rem;
 }
 
-.game-screen > .player > p {
+.game-screen > .player p {
     text-align: center;
 }
 .game-screen > .player .score {
@@ -102,19 +101,55 @@
 }
 
 
-
 .start-menu {
-    display: absolute;
-    top: 0;
-    left: 0;
+    background-color: palevioletred;
+    left: 12rem;
+    top: 13rem;
     width: 80%;
-    height: 90%;
-    background-color: #f87bc2;
     border: 0.5rem solid purple;
+    border-radius: 3rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 10%;
+    padding: 2rem;
+    z-index: 3;
+    font-size: 1.2rem;
+}
+
+
+.start-menu .settings {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 20rem;
+    height: 20vh;
+}
+.start-menu .settings input {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+}
+.start-menu .settings button {
+    padding: 0.5rem 2rem;
+    width: 25rem;
+    font-size: 2rem;
+    border-radius: 3rem;
+}
+.start-menu .settings button:hover {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
 }
 
 
 
-
-
-
+@media screen and (max-width: 1000px) {
+    :root {
+        --mode: 0;
+    }
+}

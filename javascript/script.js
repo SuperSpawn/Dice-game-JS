@@ -10,11 +10,11 @@ const imageAddresses = [
 
 
 
-const targetScore = 100;
+let targetScore = 100;
 const startScreen = document.querySelector('.start-menu');
 const gameScreen = document.querySelector('.game-screen');
 
-const startButton = document.querySelector('.start-menu button');
+const initButton = document.querySelector('.start-menu .start');
 
 const rollButton = document.querySelector('.middle-section .reroll-button');
 const holdButton = document.querySelector('.middle-section .hold-button');
@@ -44,18 +44,10 @@ const cube2Div = document.querySelector('.middle-section .cube2');
 let playerCurrent = [];
 let playerScore = [];
 
-playerCurrent[0] = 0;
-playerCurrent[1] = 0;
-playerScore[0] = 0;
-playerScore[1] = 0;
-
-
 let cube1Value = 4;
 let cube2Value = 2;
-
 let currentPlayer = 0;
-
-let gameMode = 'start';
+let gameMode = 'game';
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -84,9 +76,7 @@ function resetGame() {
     cube2Value = 2;
     currentPlayer = 0;
     gameMode = 'game';
-    gameScreen.style.display = (gameMode === 'start') ? 'none' : 'flex';
-    startScreen.style.display = (gameMode === 'start') ? 'flex' : 'none';
-
+    
     playerCurrentP[0].textContent = `${playerCurrent[0]}`;
     playerCurrentP[1].textContent = `${playerCurrent[1]}`;
 
@@ -99,6 +89,9 @@ function resetGame() {
     endMessages[0].style.display = 'none';
     endMessages[1].style.display = 'none';
 
+    
+}
+function reloadWindow() {
     window.location.reload();
 }
 function otherPlayer(player) {
@@ -123,8 +116,14 @@ function turnValid(button) {
     button.style.display = 'contents';
 }
 
-startButton.addEventListener('click', function(e) {
-    
+initButton.addEventListener("click", function(event) {
+    targetScore = document.querySelector('.start-menu input').value;
+    startScreen.style.display = 'none';
+    gameScreen.style.display = 'flex';
+    gameMode = 'game';
+    initButton.innerText = "Hello";
+    updateScreen();
+    resetGame();
 });
 
 rollButton.addEventListener("click", function(event) {
@@ -134,7 +133,13 @@ rollButton.addEventListener("click", function(event) {
     cube1Div.src = imageAddresses[cube1Value - 1];
     cube2Div.src = imageAddresses[cube2Value - 1];
 
-    playerCurrent[currentPlayer] += cube1Value + cube2Value;
+    if((cube1Value === 6) && (cube2Value === 6)) {
+        playerCurrent[currentPlayer] = 0;
+        swapPlayer();
+    }
+    else {
+        playerCurrent[currentPlayer] += cube1Value + cube2Value;
+    }
     
     updateScreen();
 });
@@ -155,21 +160,10 @@ holdButton.addEventListener('click', function(event) {
 });
 resetButton.addEventListener('click', function(e) {
     resetGame();
+    reloadWindow();
     updateScreen();
 });
 
 
-gameScreen.style.display = (gameMode === 'start') ? 'none' : 'flex';
-startScreen.style.display = (gameMode === 'start') ? 'flex' : 'none';
 
-//set values upon refresh
-playerCurrentP[0].textContent = `${playerCurrent[0]}`;
-playerCurrentP[1].textContent = `${playerCurrent[1]}`;
 
-playerScoreP[0].textContent = `${playerScore[0]}`;
-playerScoreP[1].textContent = `${playerScore[1]}`;
-
-playerDivs[0].style.opacity = 1;
-playerDivs[1].style.opacity = 0.6;
-
-//resetGame();
