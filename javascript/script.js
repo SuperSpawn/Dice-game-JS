@@ -130,8 +130,8 @@ initButton.addEventListener("click", function(event) {
     gameScreen.style.display = 'flex';
     gameMode = 'game';
     initButton.innerText = "Hello";
-    updateScreen();
     resetGame();
+    updateScreen();
 });
 
 rollButton.addEventListener("click", function(event) {
