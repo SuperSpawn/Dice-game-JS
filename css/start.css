@@ -100,6 +100,9 @@
     text-align: center;
 }
 
+.inactive {
+    display: none;
+}
 
 .start-menu {
     background-color: palevioletred;

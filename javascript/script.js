@@ -60,16 +60,14 @@ function rollDice() {
 function updateScreen() {
     playerCurrentP[currentPlayer].textContent = `${playerCurrent[currentPlayer]}`;   
     playerScoreP[currentPlayer].textContent = `${playerScore[currentPlayer]}`;
-    if(screenMode === 0) {
-        playerDivs[otherPlayer(currentPlayer)].style.display = 'none';
-    }
+    
 }
 function swapPlayer() {
     playerDivs[currentPlayer].style.opacity = 0.6;
-    if(screenMode === 0) playerDivs[currentPlayer].style.display = 'none';
+    if(screenMode === 0) playerDivs[currentPlayer].classList.add('inactive');
     currentPlayer = (currentPlayer == 0) ? 1 : 0;
     playerDivs[currentPlayer].style.opacity = 1;
-    if(screenMode === 0) playerDivs[currentPlayer].style.display = 'flex';
+    if(screenMode === 0) playerDivs[currentPlayer].classList.remove('inactive');;
 }
 function resetGame() {
     playerCurrent[0] = 0;
@@ -93,9 +91,6 @@ function resetGame() {
     playerDivs[0].style.opacity = 1;
     playerDivs[1].style.opacity = 0.6;
 
-    if(screenMode === 0) {
-        playerDivs[1].style.display = 'none';
-    }
 
     endMessages[0].style.display = 'none';
     endMessages[1].style.display = 'none';
